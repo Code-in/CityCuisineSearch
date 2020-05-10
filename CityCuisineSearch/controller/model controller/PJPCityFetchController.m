@@ -18,11 +18,23 @@ static NSString *const queryItemKey = @"q";
 static NSString *const apiHeaderKey = @"user-key";
 static NSString *const apiHeaderValue = @"4afd26ba31ea96394a3b59c74a09550c";
 static NSString *const acceptHeaderKey = @"accept";
-static NSString *const acceptHeaderValue = @"application/json";
+static NSString *const acceptImageHeaderKey = @"content-type";
+static NSString *const acceptJsonHeaderValue = @"application/json";
+static NSString *const acceptAllHeaderValue = @"*/*";
+static NSString *const acceptPngHeaderValue = @"image/png";
+static NSString *const acceptJpegHeaderValue = @"image/jpeg";
+
+static NSString * const kLocationSerializerID = @"location_suggestions";
+static NSString * const kRequestPostOperation = @"POST";
+static NSString * const kRequestGetOperation = @"GET";
 
 
 @implementation PJPCityFetchController
 
+
+/* -----------------------------------------------------------------------------*/
+// MARK: fetchSupportedCitiesInState
+/* -----------------------------------------------------------------------------*/
 + (void) fetchSupportedCitiesInState: (NSString *) city completion:(void(^) (NSArray<PJPLocation *> *locations, NSError *error))completion {
     
     NSURL *baseURL = [NSURL URLWithString:baseURLString];
@@ -34,22 +46,22 @@ static NSString *const acceptHeaderValue = @"application/json";
     NSURL *workingURL = [components URL];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:workingURL];
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:kRequestGetOperation];
     [request addValue:apiHeaderValue forHTTPHeaderField:apiHeaderKey];
-    [request addValue:acceptHeaderValue forHTTPHeaderField:acceptHeaderKey];
+    [request addValue:acceptJsonHeaderValue forHTTPHeaderField:acceptHeaderKey];
     
     
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         // error handling
         if(error) {
-            NSLog(@"%@", error.localizedDescription);
+            NSLog(@"There was an error in %s: %@, %@", __PRETTY_FUNCTION__, error, [error localizedDescription]);
             completion(nil, error);
             return;
         }
         
         if(!data){
-            NSLog(@"Error no data returned from task");
+            NSLog(@"Error no data returned from task!!!");
             completion(nil, error);
             return;
         }
@@ -57,12 +69,12 @@ static NSString *const acceptHeaderValue = @"application/json";
         NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
         
         if(!jsonDictionary || ![jsonDictionary isKindOfClass:[NSDictionary class]]) {
-            NSLog(@"JSONDictionary is not dictionary class");
+            NSLog(@"JSONDictionary is not dictionary class!!!");
             completion(nil, error);
             return;
         }
         
-        NSArray *locationsArray = jsonDictionary[@"location_suggestions"];
+        NSArray *locationsArray = jsonDictionary[kLocationSerializerID];
         // Place holder array for return the data
         NSMutableArray *outLocationArray = [NSMutableArray array];
         
@@ -75,16 +87,30 @@ static NSString *const acceptHeaderValue = @"application/json";
     
 }
 
-
-+ (void) fetchCountryImage: (NSString *) location completion:(void(^) (UIImage * image, NSError *error))completion {
+/* -----------------------------------------------------------------------------*/
+// MARK: fetchCountryImage
+/* -----------------------------------------------------------------------------*/
++ (void) fetchCountryImage: (NSString *) location completion:(void(^) (UIImage * _Nullable image, NSError *error))completion {
+    
+    if(location == nil || location == NULL){
+        NSDictionary *userInfo = @{
+          NSLocalizedDescriptionKey: NSLocalizedString(@"Couldn't load image with this path.", nil),
+          NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"No path to image.", nil),
+          NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"Need to pass in a a valid flag path?", nil) };
+        NSError *error = [NSError errorWithDomain:@"FetchingImage"
+                                             code:-666
+                                         userInfo:userInfo];
+        
+        completion(nil, error);
+        return;
+    }
     
     NSURL *baseURL = [NSURL URLWithString: location];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:baseURL];
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:kRequestGetOperation];
     [request addValue:apiHeaderValue forHTTPHeaderField:apiHeaderKey];
-    [request addValue:acceptHeaderValue forHTTPHeaderField:acceptHeaderKey];
-    
+    [request addValue:acceptPngHeaderValue forHTTPHeaderField:acceptHeaderKey];
     
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
@@ -104,7 +130,7 @@ static NSString *const acceptHeaderValue = @"application/json";
         UIImage *image = [UIImage imageWithData:data];
         completion(image, nil);
     }] resume];
-    
+
 }
 
 

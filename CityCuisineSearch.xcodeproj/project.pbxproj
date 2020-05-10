@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2017EDD2466445B00E628F5 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2017EDC2466445B00E628F5 /* CityTableViewCell.swift */; };
+		E2017EDF24664E6800E628F5 /* CuisineListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2017EDE24664E6800E628F5 /* CuisineListViewController.swift */; };
+		E20725B1246656D4005DDD60 /* PJPCityCuisineFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = E20725B0246656D4005DDD60 /* PJPCityCuisineFetch.m */; };
+		E20725B424671A55005DDD60 /* PJPCuisine.m in Sources */ = {isa = PBXBuildFile; fileRef = E20725B324671A55005DDD60 /* PJPCuisine.m */; };
+		E20725B724674814005DDD60 /* PJPCityRestaurantsFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = E20725B624674814005DDD60 /* PJPCityRestaurantsFetch.m */; };
+		E20725B92467488F005DDD60 /* CityRestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20725B82467488F005DDD60 /* CityRestaurantListViewController.swift */; };
+		E20725BC24675193005DDD60 /* PJPRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = E20725BB24675193005DDD60 /* PJPRestaurant.m */; };
 		E2B5D9622464B84900D88593 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B5D9612464B84900D88593 /* AppDelegate.m */; };
 		E2B5D9652464B84900D88593 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B5D9642464B84900D88593 /* SceneDelegate.m */; };
 		E2B5D96B2464B84900D88593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2B5D9692464B84900D88593 /* Main.storyboard */; };
@@ -19,6 +26,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E2017EDC2466445B00E628F5 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		E2017EDE24664E6800E628F5 /* CuisineListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineListViewController.swift; sourceTree = "<group>"; };
+		E20725AF246656D4005DDD60 /* PJPCityCuisineFetch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PJPCityCuisineFetch.h; sourceTree = "<group>"; };
+		E20725B0246656D4005DDD60 /* PJPCityCuisineFetch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PJPCityCuisineFetch.m; sourceTree = "<group>"; };
+		E20725B224671A55005DDD60 /* PJPCuisine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PJPCuisine.h; sourceTree = "<group>"; };
+		E20725B324671A55005DDD60 /* PJPCuisine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PJPCuisine.m; sourceTree = "<group>"; };
+		E20725B524674814005DDD60 /* PJPCityRestaurantsFetch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PJPCityRestaurantsFetch.h; sourceTree = "<group>"; };
+		E20725B624674814005DDD60 /* PJPCityRestaurantsFetch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PJPCityRestaurantsFetch.m; sourceTree = "<group>"; };
+		E20725B82467488F005DDD60 /* CityRestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRestaurantListViewController.swift; sourceTree = "<group>"; };
+		E20725BA24675193005DDD60 /* PJPRestaurant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PJPRestaurant.h; sourceTree = "<group>"; };
+		E20725BB24675193005DDD60 /* PJPRestaurant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PJPRestaurant.m; sourceTree = "<group>"; };
 		E2B5D95D2464B84900D88593 /* CityCuisineSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityCuisineSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B5D9602464B84900D88593 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2B5D9612464B84900D88593 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,6 +114,10 @@
 			children = (
 				E2B5D9852464C84500D88593 /* PJPLocation.h */,
 				E2B5D9862464C84500D88593 /* PJPLocation.m */,
+				E20725B224671A55005DDD60 /* PJPCuisine.h */,
+				E20725B324671A55005DDD60 /* PJPCuisine.m */,
+				E20725BA24675193005DDD60 /* PJPRestaurant.h */,
+				E20725BB24675193005DDD60 /* PJPRestaurant.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -114,6 +136,10 @@
 			children = (
 				E2B5D97D2464B99E00D88593 /* PJPCityFetchController.h */,
 				E2B5D97E2464B99E00D88593 /* PJPCityFetchController.m */,
+				E20725AF246656D4005DDD60 /* PJPCityCuisineFetch.h */,
+				E20725B0246656D4005DDD60 /* PJPCityCuisineFetch.m */,
+				E20725B524674814005DDD60 /* PJPCityRestaurantsFetch.h */,
+				E20725B624674814005DDD60 /* PJPCityRestaurantsFetch.m */,
 			);
 			path = "model controller";
 			sourceTree = "<group>";
@@ -128,8 +154,11 @@
 		E2B5D9812464C39000D88593 /* view controller */ = {
 			isa = PBXGroup;
 			children = (
-				E2B5D9832464C3C200D88593 /* CitiesViewController.swift */,
 				E2B5D9822464C3C200D88593 /* CityCuisineSearch-Bridging-Header.h */,
+				E2017EDE24664E6800E628F5 /* CuisineListViewController.swift */,
+				E20725B82467488F005DDD60 /* CityRestaurantListViewController.swift */,
+				E2B5D9832464C3C200D88593 /* CitiesViewController.swift */,
+				E2017EDC2466445B00E628F5 /* CityTableViewCell.swift */,
 			);
 			path = "view controller";
 			sourceTree = "<group>";
@@ -206,11 +235,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B5D97F2464B99E00D88593 /* PJPCityFetchController.m in Sources */,
+				E2017EDD2466445B00E628F5 /* CityTableViewCell.swift in Sources */,
 				E2B5D9872464C84500D88593 /* PJPLocation.m in Sources */,
 				E2B5D9842464C3C200D88593 /* CitiesViewController.swift in Sources */,
 				E2B5D9622464B84900D88593 /* AppDelegate.m in Sources */,
+				E20725B1246656D4005DDD60 /* PJPCityCuisineFetch.m in Sources */,
+				E2017EDF24664E6800E628F5 /* CuisineListViewController.swift in Sources */,
 				E2B5D9732464B84C00D88593 /* main.m in Sources */,
 				E2B5D9652464B84900D88593 /* SceneDelegate.m in Sources */,
+				E20725B424671A55005DDD60 /* PJPCuisine.m in Sources */,
+				E20725B92467488F005DDD60 /* CityRestaurantListViewController.swift in Sources */,
+				E20725B724674814005DDD60 /* PJPCityRestaurantsFetch.m in Sources */,
+				E20725BC24675193005DDD60 /* PJPRestaurant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

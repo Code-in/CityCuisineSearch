@@ -10,7 +10,7 @@
 
 @implementation PJPLocation
 
--(instancetype)initWithLocationData:(NSInteger)cityID cityName:(NSString *) cityName countryFlagUrl:(NSString *) countryFlagUrl countryName:(NSString *) countryName stateName:(NSString *) stateName {
+-(instancetype)initWithLocationData:(NSNumber *) cityID cityName:(NSString *) cityName countryFlagUrl:(NSString *) countryFlagUrl countryName:(NSString *) countryName stateName:(NSString *) stateName {
     if (self = [super init]) {
         _cityID = cityID;
         _cityName = cityName;
@@ -24,7 +24,7 @@
 
 @implementation PJPLocation (JSONConvertable)
 -(instancetype)initWithDictionary:(NSDictionary<NSString *,id> *)locationData {
-    NSInteger cityID = [locationData[@"id"] integerValue];
+    NSNumber *cityID = locationData[@"id"];
     NSString *cityName = locationData[@"name"];
     NSString *countryFlagUrl = locationData[@"country_flag_url"];
     NSString *countryName = locationData[@"country_name"];

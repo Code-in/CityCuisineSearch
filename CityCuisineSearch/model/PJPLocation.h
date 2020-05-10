@@ -12,13 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PJPLocation : NSObject
 
-@property (nonatomic, readonly) NSInteger cityID;
+@property (nonatomic, readonly) NSNumber * cityID;
 @property (nonatomic, copy, readonly) NSString * cityName;
 @property (nonatomic, copy, readonly) NSString * countryFlagUrl;
 @property (nonatomic, copy, readonly) NSString * countryName;
 @property (nonatomic, copy, readonly) NSString * stateName;
 
--(instancetype)initWithLocationData:(NSInteger)cityID cityName:(NSString *) cityName countryFlagUrl:(NSString *) countryFlagUrl countryName:(NSString *) countryName stateName:(NSString *) stateName;
+-(instancetype)initWithLocationData:(NSNumber *)cityID cityName:(NSString *) cityName countryFlagUrl:(NSString *) countryFlagUrl countryName:(NSString *) countryName stateName:(NSString *) stateName;
 
 @end
 

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PJPCityFetchController : NSObject
 
 + (void) fetchSupportedCitiesInState: (NSString *) city completion:(void(^) (NSArray<PJPLocation *> *locations, NSError *error))completion;
-+ (void) fetchCountryImage: (NSString *) location completion:(void(^) (UIImage * image, NSError *error))completion;
++ (void) fetchCountryImage: (NSString *) location completion:(void(^) (UIImage * _Nullable image, NSError *error))completion;
 
 
 @end

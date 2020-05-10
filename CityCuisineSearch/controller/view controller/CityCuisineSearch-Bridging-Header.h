@@ -3,3 +3,6 @@
 //
 
 #import "PJPCityFetchController.h"
+#import "PJPCityCuisineFetch.h"
+#import "PJPCityRestaurantsFetch.h"
+#import "PJPRestaurant.h"
